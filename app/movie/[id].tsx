@@ -67,7 +67,12 @@ export default function MovieDetailsScreen() {
 
   return (
     <ThemedView style={styles.container}>
-      <Stack.Screen options={{ title: movie?.title ?? 'Detalhes do filme' }} />
+      <Stack.Screen 
+      options={{ 
+        title: movie?.title ?? 'Detalhes do filme',
+        headerBackTitle: 'Voltar',
+       }} 
+       />
 
       {isLoading ? (
         <View style={styles.centerContent}>

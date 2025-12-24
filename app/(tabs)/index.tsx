@@ -12,6 +12,7 @@ import { MovieCard } from '@/components/home/MovieCard';
 import type { Movie } from '@/components/home/types';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type MoviesResponse = {
   page: number;
@@ -34,6 +35,8 @@ export default function MoviesScreen() {
   const [error, setError] = useState<string | null>(null);
 
   const canLoadMore = totalPages == null || page < totalPages;
+
+  const insets = useSafeAreaInsets();
 
   const fetchMovies = useCallback(
     async (pageToLoad: number, options?: { replace?: boolean }) => {
@@ -133,7 +136,10 @@ export default function MoviesScreen() {
   const hasResults = movies.length > 0;
 
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView style={[
+    styles.container,
+    { paddingTop: insets.top + 16 },
+    ]}>
       <ThemedText type="title" style={styles.headerTitle}>
         Catálogo de Filmes
       </ThemedText>
@@ -195,7 +201,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingTop: 60,
+    // paddingTop: 60,
     backgroundColor: '#0A0A0A',
   },
   headerTitle: {
