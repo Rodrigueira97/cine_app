@@ -2,7 +2,6 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react-nativ
 import React from 'react';
 import MoviesScreen from '../app/(tabs)';
 
-// Mock do expo-router
 jest.mock('expo-router', () => ({
   Link: ({ children, href, ...props }: any) => {
     const MockLink = require('react-native').TouchableOpacity;
@@ -10,7 +9,6 @@ jest.mock('expo-router', () => ({
   },
 }));
 
-// Mock do expo-image
 jest.mock('expo-image', () => ({
   Image: ({ source, ...props }: any) => {
     const MockImage = require('react-native').Image;
@@ -18,13 +16,11 @@ jest.mock('expo-image', () => ({
   },
 }));
 
-// Mock do fetch
 global.fetch = jest.fn();
 
 describe('MoviesScreen', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    // Reset env var
     process.env.EXPO_PUBLIC_TMDB_API_KEY = 'test-api-key';
   });
 
@@ -40,7 +36,7 @@ describe('MoviesScreen', () => {
 
   it('deve exibir loading inicial', () => {
     (global.fetch as jest.Mock).mockImplementation(() =>
-      new Promise(() => {}) // Promise que nunca resolve
+      new Promise(() => {}) 
     );
 
     render(<MoviesScreen />);

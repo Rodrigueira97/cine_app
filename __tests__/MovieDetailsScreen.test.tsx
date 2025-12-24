@@ -2,7 +2,6 @@ import { render, screen, waitFor } from '@testing-library/react-native';
 import React from 'react';
 import MovieDetailsScreen from '../app/movie/[id]';
 
-// Mock do expo-router
 jest.mock('expo-router', () => ({
   Stack: {
     Screen: () => null,
@@ -10,7 +9,6 @@ jest.mock('expo-router', () => ({
   useLocalSearchParams: () => ({ id: '123' }),
 }));
 
-// Mock do expo-image
 jest.mock('expo-image', () => ({
   Image: ({ source, ...props }: any) => {
     const MockImage = require('react-native').Image;
@@ -18,7 +16,6 @@ jest.mock('expo-image', () => ({
   },
 }));
 
-// Mock do fetch
 global.fetch = jest.fn();
 
 describe('MovieDetailsScreen', () => {

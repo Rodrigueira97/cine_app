@@ -1,14 +1,10 @@
-/**
- * Testes de utilitários e helpers
- */
-
 describe('Utils', () => {
   it('deve validar formato de data', () => {
     const validDate = '2024-01-15';
     const invalidDate = 'invalid-date';
 
     expect(() => new Date(validDate).toISOString()).not.toThrow();
-    expect(() => new Date(invalidDate).toISOString()).not.toThrow(); // Date aceita strings inválidas
+    expect(() => new Date(invalidDate).toISOString()).not.toThrow();
   });
 
   it('deve formatar número de nota corretamente', () => {
