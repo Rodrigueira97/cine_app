@@ -53,10 +53,9 @@ Aplicativo mobile desenvolvido em **React Native + TypeScript** com **Expo** que
 
 5. **Execute no dispositivo/emulador**
 
+   - **Expo Go**: Instale o app Expo Go no seu celular e escaneie o QR code que aparece no terminal (jeito mais rápido e facil)
    - **iOS Simulator**: Pressione `i` no terminal ou escaneie o QR code com a câmera
    - **Android Emulator**: Pressione `a` no terminal ou escaneie o QR code
-   - **Expo Go**: Instale o app Expo Go no seu celular e escaneie o QR code
-   - **Web**: Pressione `w` no terminal
 
 ## 📚 Bibliotecas utilizadas e justificativas
 
