@@ -39,7 +39,7 @@ Aplicativo mobile desenvolvido em **React Native + TypeScript** com **Expo** que
 
 3. **Configure a API Key do TMDB**
 
-   Crie um arquivo `.env` na raiz do projeto:
+   Crie um arquivo `.env` na raiz do projeto e cole a chave abaixo:
 
    ```bash
    EXPO_PUBLIC_TMDB_API_KEY=5509a4c4ef5ebd078aec8a342ea6ef59
