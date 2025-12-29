@@ -10,7 +10,7 @@ Aplicativo mobile desenvolvido em **React Native + TypeScript** com **Expo** que
 - ✅ **Busca em tempo real** via API
 - ✅ **Tratamento de erros** e estados de carregamento
 - ✅ **Interface moderna** com tema escuro estilo cinema
-- ✅ **CI/CD** configurado com GitHub Actions
+- ✅ **CI/CD** configurado com GitHub Actions (lint e verificação de build)
 
 ## 🚀 Como executar o projeto
 
@@ -43,6 +43,8 @@ Aplicativo mobile desenvolvido em **React Native + TypeScript** com **Expo** que
    EXPO_PUBLIC_TMDB_API_KEY=5509a4c4ef5ebd078aec8a342ea6ef59
    ```
    
+   > **Nota**: Para obter uma chave da API, crie uma conta gratuita em [TMDB](https://www.themoviedb.org/signup) e gere sua chave em [Configurações da API](https://www.themoviedb.org/settings/api).
+   
 4. **Inicie o servidor de desenvolvimento**
 
    ```bash
@@ -73,39 +75,14 @@ Aplicativo mobile desenvolvido em **React Native + TypeScript** com **Expo** que
 ### Desenvolvimento
 
 - **eslint** + **eslint-config-expo**: Linter para manter qualidade e consistência do código
-- **jest**: Framework de testes para garantir qualidade e evitar regressões
-- **@testing-library/react-native**: Biblioteca de testes focada em comportamento do usuário
-
-## 🧪 Testes
-
-O projeto inclui testes automatizados usando **Jest** e **React Native Testing Library**.
-
-### Executar testes
-
-```bash
-npm test
-```
-
-### Executar testes em modo watch
-
-```bash
-npm test -- --watch
-```
-
-### Cobertura de testes
-
-```bash
-npm test -- --coverage
-```
 
 ## 🔄 CI/CD
 
 O projeto possui pipeline de CI/CD configurado com **GitHub Actions** que:
 
 - Executa linting do código
-- Roda testes automatizados
-- Verifica build do projeto
-- Gera relatório de cobertura
+- Verifica compatibilidade das dependências do Expo
+- Verifica build do projeto (TypeScript)
 
 O workflow está configurado em `.github/workflows/ci.yml` e é executado automaticamente em cada push e pull request.
 
@@ -124,7 +101,6 @@ cine_app/
 ├── constants/                 # Constantes e temas
 ├── hooks/                     # Custom hooks
 ├── services/                  # Serviços (APIs)
-├── __tests__/                 # Testes automatizados
 ├── .github/
 │   └── workflows/
 │       └── ci.yml             # Pipeline CI/CD
@@ -160,7 +136,6 @@ O aplicativo foi desenvolvido com foco em:
 - [ ] **Animações**: Adicionar transições suaves entre telas
 - [ ] **Acessibilidade**: Melhorar suporte a leitores de tela e navegação por teclado
 - [ ] **Internacionalização**: Suporte a múltiplos idiomas
-- [ ] **Testes E2E**: Adicionar testes end-to-end com Detox ou Maestro
 - [ ] **Performance monitoring**: Integrar Sentry ou similar para monitoramento de erros
 - [ ] **Deep linking**: Permitir compartilhamento de links diretos para filmes
 
@@ -176,7 +151,15 @@ O aplicativo foi desenvolvido com foco em:
 - A API do TMDB tem **rate limiting**. Em produção, considere implementar cache ou usar um backend próprio como proxy
 - O arquivo `.env` não deve ser commitado no repositório (já está no `.gitignore`)
 - Para builds de produção, configure as variáveis de ambiente no serviço de CI/CD ou no Expo
-- **Firebase não incluído neste app**: o SDK web de Analytics não funciona em React Native/Expo Go. Para usar Firebase Analytics seria necessário usar o SDK nativo (`@react-native-firebase/analytics`) e builds customizadas (EAS ou nativas) com `google-services.json`/`GoogleService-Info.plist`. Mantive o app sem Firebase para rodar 100% no Expo Go.
+
+## ⚠️ Limitações e pendências
+
+Devido a problemas técnicos encontrados durante o desenvolvimento e prazo estourado, algumas funcionalidades planejadas não foram implementadas:
+
+- **Testes automatizados**: A implementação de testes unitários e de integração com Jest e React Native Testing Library não foi concluída a tempo
+- **Integração com Firebase**: A integração com Firebase para autenticação e armazenamento de dados não foi implementada devido à complexidade de configuração com Expo Go e limitações de tempo
+
+Estas funcionalidades estão planejadas para implementação futura quando houver mais tempo disponível para desenvolvimento e testes adequados.
 
 ## 👨‍💻 Desenvolvido por
 
