@@ -10,7 +10,6 @@ Aplicativo mobile desenvolvido em **React Native + TypeScript** com **Expo** que
 - ✅ **Busca em tempo real** via API
 - ✅ **Tratamento de erros** e estados de carregamento
 - ✅ **Interface moderna** com tema escuro estilo cinema
-- ✅ **Testes automatizados** (Jest + React Native Testing Library)
 - ✅ **CI/CD** configurado com GitHub Actions
 
 ## 🚀 Como executar o projeto
@@ -20,7 +19,6 @@ Aplicativo mobile desenvolvido em **React Native + TypeScript** com **Expo** que
 - Node.js 18+ instalado
 - npm ou yarn
 - Expo CLI (instalado globalmente ou via npx)
-- Conta no TMDB para obter API Key ([criar conta](https://www.themoviedb.org/signup))
 
 ### Passos para rodar
 
