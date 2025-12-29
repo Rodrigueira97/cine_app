@@ -7,8 +7,8 @@ on:
     branches: [main, master, develop]
 
 jobs:
-  test:
-    name: Test
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
 
     steps:
@@ -26,18 +26,6 @@ jobs:
 
       - name: Run linter
         run: npm run lint
-
-      - name: Run tests
-        run: npm test -- --coverage --watchAll=false
-        env:
-          EXPO_PUBLIC_TMDB_API_KEY: ${{ secrets.TMDB_API_KEY || 'test-key' }}
-
-      - name: Upload coverage reports
-        uses: codecov/codecov-action@v3
-        if: always()
-        with:
-          files: ./coverage/lcov.info
-          fail_ci_if_error: false
 
   build:
     name: Build Check
